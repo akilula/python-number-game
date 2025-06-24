@@ -7,12 +7,13 @@ import random # For random number generation
 leaderboard = []
 
 def start_game():
+
     # Explaining the game and choosing difficulty level
-    print ("\nWelcome to the Number Guessing Game")
-    print ("Choosing a difficulty level")
-    print ("1. Easy (10 guesses)")
-    print ("2. Medium (5 guesses)")
-    print ("3. Hard (3 guesses")
+   print ("\nWelcome to the Number Guessing Game")
+   print ("Choosing a difficulty level")
+   print ("1. Easy (10 guesses)")
+   print ("2. Medium (5 guesses)")
+   print ("3. Hard (3 guesses")
 
     # Handling difficulty level selection
   while True:
@@ -117,6 +118,3 @@ else:
 
 if __name__ == "__main__":
     main_menu()
-
-
-
