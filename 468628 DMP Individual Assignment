@@ -1,0 +1,120 @@
+# python-number-game
+A Python project for a number guessing game built for my MK:U programming module assignment
+
+import random # For random number generation
+
+# List to store results for the leaderboard
+leaderboard = []
+
+def start_game():
+
+    # Explaining the game and choosing difficulty level
+   print ("\nWelcome to the Number Guessing Game")
+   print ("Choosing a difficulty level")
+   print ("1. Easy (10 guesses)")
+   print ("2. Medium (5 guesses)")
+   print ("3. Hard (3 guesses")
+
+    # Handling difficulty level selection
+  while True:
+        level = input ("Enter your choice (1/2/3):   ")
+        if level == "1":
+            max_guesses = 10
+            break
+        elif level == "2"
+            max_guesses = 5
+            break
+        elif level == "3"
+            max_guesses = 3
+            break
+        else:
+            print ("Invalid choice. Please enter, 1, 2 or 3".)
+
+print(f"\nYou selected a level with {max_guesses} guesses.")
+print('I am thinking of a number between 1 and 100. Try to guess it")
+
+# Setting up the designated number and tracking guesses
+number_to_guess = random.randint(1,100_
+guesses = 0
+
+# Request for Player's name
+player_name = input("Enter your name: ")
+
+# Game logic
+while guesses < max_guesses:
+  try:
+      guess = int(input(f"\nAttempt {guess + 1}/{max_guesses} Enter your guess: "))
+      guessses += 1
+
+      # Guess feedback
+  if guess < number_to_guess:
+      print("Too low!")
+  elif guess > number_to_guess:
+      print("Too high!")
+  else:
+      print (f"Well done, {player name}! You have guessed the number in {guesses} attempts.")
+      leaderboard.apprend{{"name": player_name, "attempts": guesses}}
+
+      # Performance Feedback
+if guesses <= 3:
+   print ("Great work! You are a pro at this game!")
+elif guesses <= max_guesses // 2:
+   print ("Good work, nice guessing!")
+else:
+   print ("You got it, but it took some tactical thinking")
+
+  break
+except ValueEroor:
+  print ("Invalid input! Please enter a number.")
+
+if guesses == max_guesses and guess !=number_to_guess:
+   print (f""\You've run out of guesses! The correct number was {number_to_guess}.")
+
+def display_leaderboard():
+    print("\nLeaderboard:")
+    if not leaderboard:
+        print("No winners yet!")
+    else:
+        sorted_leaderboard = sorted(leaderboard, key=lambda x: x["attempts"])
+        print("Rank | Player      | Attempts")
+        for rank, entry in enumerate(sorted_leaderboard, start=1):
+            print(f"{rank:<5} {entry['name']:<10} {entry['attempts']}")
+
+def view_stats():
+    print("\nGame Statistics:")
+    if not leaderboard:
+        print("No games to show yet!")
+    else:
+        total_games = len(leaderboard)
+        best_attempt = min(leaderboard, key=lambda x: x["attempts"])["attempts"]
+        worst_attempt = max(leaderboard, key=lambda x: x["attempts"])["attempts"]
+
+  print(f"Total games won: {total_games}")
+  print(f"Best performance: {best_attempt} attempts")
+  print(f"Worst performance: {worst_attempt} attempts")
+
+def main_menu():
+    # Main menu for the game
+    while True:
+        print("\nMain Menu")
+        print("1. Start the Game")
+        print("2. Leaderboard")
+        print("3. Statistics")
+        print("4. Exit")
+
+  choice = input("Enter your choice (1/2/3/4): ")
+
+  if choice == "1":
+      start_game()
+ elif choice == "2":
+     display_leaderboard()
+ elif choice == "3":
+            view_stats()
+ elif choice == "4":
+    print("Thanks for playing! Goodbye!")
+    break
+else:
+    print("Please enter a valid option.")
+
+if __name__ == "__main__":
+    main_menu()
